@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url('image/pexels-cmonphotography-1809644.jpg');
+    object-fit: cover;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  .bg-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+.card {
+    width: 320px;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 8px solid white;
+    position: relative;
+    /* margin-top: 10em; */
+    margin: 2em;
+}
+
+.card-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents cropping */
+    border-radius: 15px;
+}
+.card-body{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    position: absolute;
+    background: #1f3d4738 ;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    color: #fff;
+    /* -webkit-text-stroke: 0.2px black; */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 2s;
+
+}
+.card:hover .card-body{
+    right: 0;
+    
+
+}
+
+.card-title{
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 500;
+}
+.card-sub-title{
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 300;
+}
+.card-info{
+    font-size: 16px;
+    line-height: 25px;
+    /* background: black; */
+    margin: 20px 0;
+    font-weight: 400;
+
+}
+.card-btn{
+    color: #fff;
+    background: black;
+    padding: 10px 20px;
+    width: 120px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+
+
+}
+
+/* Responsive Styles for Screen Width Between 320px and 768px */
+@media screen and (max-width: 786px) {
+    .bg-container {
+        flex-direction: column; /* Stack cards in a column for smaller screens */
+        align-items: center; /* Center the cards horizontally */
+    }
+
+    .card {
+        width: 380px;
+        height: 820px;
+        margin-top: 2em; /* Reduce top margin on smaller screens */
+
+    }
+    .card-body{
+        overflow-y: scroll;
+    }
+
+    .card-title {
+        font-size: 10px; /* Adjust title font size */
+        
+    }
+
+    .card-sub-title {
+        font-size: 10px; /* Adjust subtitle font size */
+    }
+
+    .card-info {
+        font-size: 14px; /* Adjust info font size */
+        margin: 15px 0; /* Reduce space for smaller screens */
+    }
+
+    .card-btn {
+        padding: 8px 16px; /* Adjust padding for smaller buttons */
+        width: 10px; /* Reduce button width */
+    }
+}
+
+/* Additional styles for screens smaller than 320px */
+@media screen and (max-width: 320px) {
+    .card {
+        width: 100%;
+        height: 520px;
+        margin-top: 2em;
+    }
+    .card-body{
+        overflow-y: scroll;
+    }
+
+    .card-title {
+        font-size: 2px; /* Smaller title */
+    }
+
+    .card-sub-title {
+        font-size: 3px; /* Smaller subtitle */
+    }
+
+    .card-info {
+        font-size: 5px; /* Smaller info text */
+        /* margin: 10px 0; */
+    }
+
+    .card-btn {
+        padding: 8px 16px; /* Even smaller button */
+        width: 8px; /* Even smaller button */
+    }
+}
+
+/* For screens larger than 786px, the layout remains in row */
+@media screen and (min-width: 787px) {
+    .bg-container {
+        flex-direction: row; /* Align cards in row for larger screens */
+    }
+
+    .card {
+        width: 320px;
+        height: 500px;
+        margin: 2em;
+    }
+
+    .card-title {
+        font-size: 30px;
+    }
+
+    .card-sub-title {
+        font-size: 14px;
+    }
+
+    .card-info {
+        font-size: 16px;
+    }
+
+    .card-btn {
+        width: 120px;
+    }
+}

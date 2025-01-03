@@ -1,0 +1,155 @@
+body {
+    /* background: #eee; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 90vh;
+    overflow: hidden;
+  }
+  /* Full-screen video background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the video stays behind the content */
+  }
+  
+  .video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire body */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .card {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    border-radius: 0px 10px 10px 0px;
+    /* background: #f4f4f4; */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(1px);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    perspective: 100em;
+    margin: 25px;
+    box-shadow: 30px 40px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cover {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    /* background: dodgerblue; */
+    border-radius: 10px 0px 0px 10px;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1s;
+    border-radius: 0px 10px 10px 0px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .card:hover .cover {
+    transform: rotateY(-120deg);
+  }
+  
+  .coverFront,
+  .coverBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+  }
+  
+  .coverFront {
+    /* background: #f4f4f4; */
+    color: #333;
+    border-radius: 0px 10px 10px 0px;
+  }
+  
+  .coverBack {
+    /* background: #ddd; */
+    border-radius: 10px 0px 0px 10px;
+    transform: rotateY(180deg);
+    overflow: hidden; /* Ensure video is contained */
+  }
+  
+  /* Video styling for coverBack */
+  .coverVideo {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 0px 0px 10px;
+    object-fit: cover; /* Ensures the video covers the space without breaking */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place the video behind the text */
+  }
+  
+  /* Styling for image and button */
+  .sh_img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .sh_btn {
+    border: 0px;
+    background: dodgerblue;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    margin-top: 40px;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 768px) {
+    .card {
+      width: 90%;
+      height: auto;
+    }
+  
+    .coverFront {
+      font-size: 14px; /* Adjust text size for smaller screens */
+    }
+  
+    .coverBack .coverVideo {
+      height: 60%; /* Limit video size to not occupy too much space */
+    }
+  
+    .sh_btn {
+      padding: 8px 16px; /* Adjust button size */
+    }
+  }
+  
+  @media screen and (max-width: 320px) {
+    .card {
+      width: 100%;
+      height: auto;
+    }
+  
+    .coverFront {
+      font-size: 12px;
+    }
+  
+    .coverBack .coverVideo {
+      height: 50%; /* Further limit video size on very small screens */
+    }
+  
+    .sh_btn {
+      padding: 6px 12px;
+    }
+  }
+  

@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Poppins, sans-serif;
+  color: #f0f0f0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex; /* Enable Flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.bg-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card {
+  position: relative; /* Allows it to sit above the image */
+  padding: 2em;
+  width: 80%; /* Allows card to resize based on screen size */
+  max-width: 400px; /* Limit max width for larger screens */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  text-align: center;
+  z-index: 1; /* Ensure the card is above the image */
+}
+
+h1 {
+  color: #000;
+  padding-bottom: 0.9em;
+}
+h2{
+  color: rgb(160, 234, 174);
+  
+}
+
+.back-bgt a {
+  position: absolute;
+  
+  display: inline-block;
+  font-size: 1em;
+  letter-spacing: .1em;
+  color: #0ef;
+  background-color: #000;
+  border-radius: 5px solid rgb(37, 42, 42) ;
+  text-decoration: none;
+  text-transform: uppercase;
+  /* border: 2px solid #0ef; */
+
+  padding: 5px 20px;
+  margin-left: 50em;
+  margin-top: -12em;
+  
+  z-index: 1;
+  overflow: hidden;
+  transition: color 1s, box-shadow 1s;
+}
+a:hover {
+  transition-delay: 0s, 1s;
+  color: #fff;
+  box-shadow:
+      0 0 10px #0ef,
+      0 0 20px #0ef,
+      0 0 40px #0ef,
+      0 0 80px #0ef,
+      0 0 160px #0ef;
+}
+a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 0;
+  height: 100%;
+  background: #0ef;
+  transform: skewX(35deg);
+  z-index: -1;
+  transition: 1s;
+}
+a:hover:before {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+a {
+  position: absolute;
+  
+  display: inline-block;
+  font-size: 1em;
+  letter-spacing: .1em;
+  color: #0ef;
+  background-color: #000;
+  border-radius: 5px solid rgb(37, 42, 42) ;
+  text-decoration: none;
+  text-transform: uppercase;
+  /* border: 2px solid #0ef; */
+
+  padding: 5px 20px;
+  margin-left: 40em;
+  margin-top: -12em;
+  
+  z-index: 1;
+  overflow: hidden;
+  transition: color 1s, box-shadow 1s;
+}
+a:hover {
+  transition-delay: 0s, 1s;
+  color: #fff;
+  box-shadow:
+      0 0 10px #0ef,
+      0 0 20px #0ef,
+      0 0 40px #0ef,
+      0 0 80px #0ef,
+      0 0 160px #0ef;
+}
+a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 0;
+  height: 100%;
+  background: #0ef;
+  transform: skewX(35deg);
+  z-index: -1;
+  transition: 1s;
+}
+a:hover:before {
+  width: 100%;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.card::after,
+.card::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.card::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .card {
+    width: 90%; /* Use 90% width on smaller screens */
+    padding: 1.5em; /* Adjust padding on smaller screens */
+  }
+
+  h1 {
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 95%; /* Use 95% width on very small screens */
+    padding: 1em; /* Adjust padding more on very small screens */
+  }
+
+  h1 {
+    font-size: 1.3em; /* Further adjust font size */
+  }
+}
+
+/* Hide the <a> tag for screens smaller than 768px */
+@media (max-width: 768px) {
+  a {
+    display: none; /* Hide the <a> tag on small screens */
+  }
+  .back-bgt{
+    display: none;
+  }
+}
+
+/* Show the <a> tag again for screens larger than 768px */
+@media (min-width: 769px) {
+  a {
+    display: inline-block; /* Show the <a> tag on larger screens */
+  }
+   .back-bgt{
+    display: inline-block;
+  }
+}
